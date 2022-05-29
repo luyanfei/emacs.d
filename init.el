@@ -86,23 +86,24 @@
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-(require 'init-erlang)
+;;(require 'init-erlang)
 (require 'init-javascript)
-(require 'init-php)
+;;(require 'init-php)
 (require 'init-org)
+(require 'init-orgroam)
 (require 'init-nxml)
 (require 'init-html)
 (require 'init-css)
 (require 'init-haml)
 (require 'init-http)
 (require 'init-python)
-(require 'init-haskell)
+;;(require 'init-haskell)
 (require 'init-elm)
 (require 'init-purescript)
 (require 'init-ruby)
-(require 'init-rails)
+;;(require 'init-rails)
 (require 'init-sql)
-(require 'init-ocaml)
+;;(require 'init-ocaml)
 (require 'init-j)
 (require 'init-nim)
 (require 'init-rust)
@@ -116,8 +117,8 @@
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
-(require 'init-clojure)
-(require 'init-clojure-cider)
+;;(require 'init-clojure)
+;;(require 'init-clojure-cider)
 (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
@@ -150,8 +151,6 @@
   (add-hook 'after-init-hook 'global-eldoc-mode))
 
 (require 'init-direnv)
-
-
 
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook
