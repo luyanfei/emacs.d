@@ -3,6 +3,7 @@
 ;;(setq-default tab-width 2)
 ;;;解决org-mode不能自动换行问题
 
+(setq fill-column 80)
 (setq org-startup-truncated nil)
 (global-set-key (kbd "C-!") 'org-time-stamp-inactive)
 
@@ -30,16 +31,20 @@
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 
-(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 (setq org-startup-with-inline-images t)
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 (setq org-capture-templates `(
-	                      ("p" "Protocol" entry (file+headline (concat org-directory "/basket.org") "Inbox")
+	                      ("p" "Protocol" entry (file+headline "~/myorg/basket.org" "Inbox")
                                "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
-	                      ("L" "Protocol Link" entry (file+headline (concat org-directory "/basket.org") "Inbox")
+	                      ("L" "Protocol Link" entry (file+headline "~/myorg/basket.org" "Inbox")
                                "* %? [[%:link][%:description]] \nCaptured On: %U")
                               ))
+(setq org-agenda-start-on-weekday 1)
 (require 'org-tempo)
+(require 'org-capture)
+(require 'org-protocol)
 
 (provide 'init-local)
 ;;; init-local.el ends here

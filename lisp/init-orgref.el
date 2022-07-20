@@ -1,5 +1,5 @@
-(setq bibtex-completion-bibliography '("~/bibliography/references.bib")
-      bibtex-completion-library-path '("~/bibliography/bibtex-pdfs/")
+(setq bibtex-completion-bibliography '("~/myorg/bibliography/references.bib")
+      bibtex-completion-library-path '("~/myorg/bibliography/bibtex-pdfs/")
       bibtex-completion-notes-path "~/bibliography/notes/"
       bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
 
@@ -13,4 +13,17 @@
       bibtex-completion-pdf-open-function
       (lambda (fpath)
         (call-process "open" nil 0 nil fpath)))
+
+(require 'bibtex)
+
+(setq bibtex-autokey-year-length 4
+      bibtex-autokey-name-year-separator "-"
+      bibtex-autokey-year-title-separator "-"
+      bibtex-autokey-titleword-separator "-"
+      bibtex-autokey-titlewords 2
+      bibtex-autokey-titlewords-stretch 1
+      bibtex-autokey-titleword-length 5)
+
+(define-key bibtex-mode-map (kbd "H-b") 'org-ref-bibtex-hydra/body)
+
 (provide 'init-orgref)

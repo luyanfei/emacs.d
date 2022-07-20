@@ -91,6 +91,7 @@
 ;;(require 'init-php)
 (require 'init-org)
 (require 'init-orgroam)
+(require 'init-orgref)
 (require 'init-nxml)
 (require 'init-html)
 (require 'init-css)
