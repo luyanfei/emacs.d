@@ -30,7 +30,7 @@
       '(
         ("d" "default" plain
          (file "~/myorg/templates/default_roam_with_body.org")
-         :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
+         :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+date: %U\n")
          :unnarrowed t
          )
         ("q" "question answer" plain
@@ -54,6 +54,16 @@
                (direction . right)
                (window-width . 0.33)
                (window-height . fit-window-to-buffer)))
+
+(defun my-org-roam-node-has-tag (node tag)
+  "Filter function to check if the given node has the specified tag."
+  (member tag (org-roam-node-tags node)))
+(defun my-org-roam-node-find-by-tag ()
+  "Find and open a Org-roam node based on a specified tag."
+  (interactive)
+  (let ((tag (read-string "Enter tag: ")))
+    (org-roam-node-find nil nil (lambda (node) (my-org-roam-node-has-tag node tag)))))
+
 (use-package deft
   :after org
   :bind

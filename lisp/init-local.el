@@ -1,9 +1,19 @@
 ;;; package --- Summary
 ;;; code:
 ;;(setq-default tab-width 2)
-;;;解决org-mode不能自动换行问题
 
 (setq fill-column 80)
+(require 'evil)
+(evilem-default-keybindings "\\")
+(global-set-key (kbd "C-z") 'evil-mode)
+(evil-mode 1)
+
+(setq org-agenda-sorting-strategy
+      '((agenda priority-down category-keep)
+        (todo priority-down category-up effort-up)
+        (tags priority-down category-up effort-up)
+        (search priority-down category-up)))
+
 (setq org-startup-truncated nil)
 (global-set-key (kbd "C-!") 'org-time-stamp-inactive)
 
