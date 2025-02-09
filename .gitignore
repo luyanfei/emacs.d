@@ -57,3 +57,5 @@ site-lisp/package/
 /eln-cache/
 /projects
 org-roam.db
+/forge-*.sqlite
+/projectile.cache
