@@ -17,7 +17,8 @@
 (setq org-startup-truncated nil)
 (global-set-key (kbd "C-!") 'org-time-stamp-inactive)
 
-(set-fontset-font "fontset-default" 'unicode (font-spec :family "Microsoft YaHei"))
+(set-face-attribute 'default nil :font (font-spec :family "Cascadia Mono NF" :size 18))
+(set-fontset-font "fontset-default" 'unicode (font-spec :family "Microsoft YaHei" :size 18))
 (setenv "GIT_PAGER" "/bin/cat")
 
 ;;;添加multiple-cursors快捷键配置
